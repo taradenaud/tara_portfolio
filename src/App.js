@@ -425,13 +425,14 @@ function App() {
             </div>
             <div className="project-content">
               <h3>Reinforcement Learning Research</h3>
-              <p className="project-type">Machine Learning Honours Project (qOttawa)</p>
+              <p className="project-type">Machine Learning Honours Project (uOttawa)</p>
               <p>Built a sparse reward framework using Gymnasium to design and executed 90-job hyperparameter sweeps on a compute cluster, analyzing task variance and pre-layer initialization across AntMaze, Hopper-v4, and Walker2d-v4.</p>
               <div className="project-tech">
                 <span className="tech-tag">Python</span>
                 <span className="tech-tag">PyTorch</span>
                 <span className="tech-tag">Gymnasium</span>
                 <span className="tech-tag">AntMaze</span>
+                <span className="tech-tag">Ant-v4</span>
                 <span className="tech-tag">Hopper-v4</span>
                 <span className="tech-tag">Walker2d-v4</span>
               </div>
@@ -954,7 +955,7 @@ function App() {
 
           {/* Spotify Integration */}
           <div className="spotify-section">
-            <h3 className="spotify-title">🎧 Currently Vibing To</h3>
+            <h3 className="spotify-title">Currently Vibing To</h3>
             <div className="spotify-widget">
               {currentTrack ? (
                 <div className="track-info">
@@ -967,13 +968,13 @@ function App() {
                 </div>
               ) : (
                 <div className="spotify-placeholder">
-                  <p>🎵 Connect your Spotify to see what I'm listening to!</p>
-                  <p className="spotify-note">Check out my coding playlists and discover new music</p>
+                  <p>Connect your Spotify to see what I'm listening to!</p>
+                  <p className="spotify-note">Check out my playlists and discover new music</p>
                   {/* Embed a public Spotify playlist as placeholder */}
                   <div className="playlist-embed">
                     <iframe 
                       style={{borderRadius: '12px'}} 
-                      src="https://open.spotify.com/playlist/5S95kfb39v4NxjwIo7vX6Q?si=h9I0MptmRRSQs9MS_qoGBg&pi=T_EoCV-5TAGZXmJH3U6Z0A" 
+                      src="" 
                       width="100%" 
                       height="152" 
                       frameBorder="0" 

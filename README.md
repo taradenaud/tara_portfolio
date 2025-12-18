@@ -4,24 +4,11 @@ A portfolio website showcasing my journey as a Computer Science student and soft
 
 🌐 **Live Site:** [taradenaud.com](https://taradenaud.com)
 
-## 🎨 Color Story
+## Color Story
 
 The portfolio features a **night-sky-inspired color palette**:
 
-### Deep Blues (Background & Structure)
-The foundation uses a gradient of deep blues that create a sense of depth:
-- **Rich Black** `#000814` - The cosmic void, providing maximum contrast
-- **Oxford Blue** `#001d3d` - Deep space background
-- **Yale Blue** `#003566` - Mid-tone backgrounds and secondary elements
-- **Marian Blue** `#00428b` - Accent backgrounds and hover states
-
-### Golden Yellows (Highlights & Interaction)
-Warm yellow tones guiding users through the experience:
-- **Mikado Yellow** `#ffc300` - Primary accents, borders, and active states
-- **Gold Yellow** `#ffd60a` - Interactive elements and hover effects
-- **Maize Yellow** `#fbec5d` - Text highlights and bright accents
-
-This palette creates a **high-contrast, accessible design** that's both visually striking and easy to read, while maintaining a cohesive theme throughout.
+This palette creates a **high-contrast, (hopefully) accessible design** that's both visually striking and easy to read, while maintaining a cohesive theme throughout.
 
 ### Color Palette Reference
 
@@ -63,20 +50,6 @@ This palette creates a **high-contrast, accessible design** that's both visually
    - The app will automatically open at [http://localhost:3000](http://localhost:3000)
    - Hot reload is enabled for development
 
-### Build for Production
-
-```bash
-npm run build
-```
-Creates an optimized production build in the `build/` folder.
-
-### Deploy to GitHub Pages
-
-```bash
-npm run deploy
-```
-Deploys the built site to GitHub Pages (configured in `package.json`).
-
 ## 🛠️ Tech Stack
 
 ### Core Technologies
@@ -100,7 +73,6 @@ Deploys the built site to GitHub Pages (configured in `package.json`).
 
 ### Development Tools
 - **Create React App** - Build tooling and configuration
-- **gh-pages 6.2.0** - GitHub Pages deployment
 
 ### Additional Libraries
 - **react-slick** - Carousel/slider functionality (legacy)
