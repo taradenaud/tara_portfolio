@@ -9,6 +9,9 @@
   --gold-yellow: #ffd60a;
   --maize-yellow: #fbec5d;
 }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 body {
   background-attachment: fixed; 
   background-repeat: no-repeat;
