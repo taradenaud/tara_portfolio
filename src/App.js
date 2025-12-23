@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 
 import './App.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Star } from './images/Star'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,6 +32,22 @@ import goodcycle_project from "./images/goodCycle_project.png";
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+const canUseWebGL = () => {
+  if (typeof window === 'undefined') {
+    return false;
+  }
+
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch (error) {
+    return false;
+  }
+};
+
 function App() {
   const helloRef = useRef(null);
   const welcomeRef = useRef(null);
@@ -51,6 +67,7 @@ function App() {
   const [expandedProjects, setExpandedProjects] = useState({}); // Track expanded projects
   const [selectedStrength, setSelectedStrength] = useState('leadership'); // Default to leadership
   const [selectedInterest, setSelectedInterest] = useState('music'); // Default to music
+  const webglEnabled = useMemo(() => canUseWebGL(), []);
   
 
   useEffect(() => {
@@ -316,11 +333,13 @@ function App() {
           <h1 ref={helloRef}></h1>
           <h2 ref={welcomeRef}></h2>
         </div>
-        <Canvas className="star-canvas">
-          <ambientLight intensity={1} />
-          <directionalLight position={[2, 5, 0]} />
-          <Star /> 
-        </Canvas>
+        {webglEnabled && (
+          <Canvas className="star-canvas">
+            <ambientLight intensity={1} />
+            <directionalLight position={[2, 5, 0]} />
+            <Star />
+          </Canvas>
+        )}
       </header>
 
       {/* About Me Section */}
@@ -1175,20 +1194,22 @@ function App() {
         </div>
       </section>
 
-      <Canvas
-        className="webgl"
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: -1,
-          pointerEvents: 'none',
-        }}
-      >
-        <Star />
-      </Canvas>
+      {webglEnabled && (
+        <Canvas
+          className="webgl"
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: -1,
+            pointerEvents: 'none',
+          }}
+        >
+          <Star />
+        </Canvas>
+      )}
 
       {modalContent && (
         <div className="modal-overlay" onClick={closeModal}>
