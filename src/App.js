@@ -69,100 +69,115 @@ function App() {
   const [selectedInterest, setSelectedInterest] = useState('music'); // Default to music
   const webglEnabled = useMemo(() => canUseWebGL(), []);
   
-
   useEffect(() => {
-    // typewriting animation for the intro
-    gsap.to(helloRef.current, {
-      duration: 2.5,
-      text: "Hello, my name is Tara Denaud!",
-      ease: "power1.inOut",
-      delay: 0.5,
-    });
+    let observer = null;
 
-    gsap.to(welcomeRef.current, {
-      duration: 2.5,
-      text: "Welcome to my portfolio",
-      ease: "power1.inOut",
-      delay: 3.5,
-    });
-    
+    const runAnimations = () => {
+      // typewriting animation for the intro
+      gsap.to(helloRef.current, {
+        duration: 2.5,
+        text: "Hello, my name is Tara Denaud!",
+        ease: "power1.inOut",
+        delay: 0.5,
+      });
 
-    // section reveal animations (use each element as trigger)
-    sectionRefs.current.forEach((el) => {
-      if (!el) return;
-      gsap.fromTo(
-        el,
-        { y: 100, opacity: 0 }, // Initial position (down) and opacity
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%",
-            end: "bottom 50%",
-            scrub: false,
-          },
-        }
-      );
-    });
+      gsap.to(welcomeRef.current, {
+        duration: 2.5,
+        text: "Welcome to my portfolio",
+        ease: "power1.inOut",
+        delay: 3.5,
+      });
 
-    // Animate about cards with stagger
-    aboutCardRefs.current.forEach((card, index) => {
-      if (card) {
+      // section reveal animations (use each element as trigger)
+      sectionRefs.current.forEach((el) => {
+        if (!el) return;
         gsap.fromTo(
-          card,
-          { opacity: 0, y: 30, scale: 0.95 },
+          el,
+          { y: 100, opacity: 0 }, // Initial position (down) and opacity
           {
-            opacity: 1,
             y: 0,
-            scale: 1,
-            duration: 0.6,
-            delay: index * 0.15,
-            ease: 'power2.out',
+            opacity: 1,
+            duration: 1.2,
+            ease: "power4.out",
             scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              trigger: el,
+              start: "top 80%",
+              end: "bottom 50%",
+              scrub: false,
             },
           }
         );
-      }
-    });
+      });
 
-    // active section highlighting using IntersectionObserver
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.55,
-    };
-
-    const observerCallback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+      // Animate about cards with stagger
+      aboutCardRefs.current.forEach((card, index) => {
+        if (card) {
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 30, scale: 0.95 },
+            {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.6,
+              delay: index * 0.15,
+              ease: 'power2.out',
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse',
+              },
+            }
+          );
         }
+      });
+
+      // active section highlighting using IntersectionObserver
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.55,
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      };
+
+      observer = new IntersectionObserver(observerCallback, observerOptions);
+      sectionRefs.current.forEach((el) => {
+        if (el) observer.observe(el);
+      });
+
+      // Nav bar trigger (to show when the user scrolls to the "About me section")
+      ScrollTrigger.create({
+        trigger: "#about",
+        start: "top center", // When "About Me" section reaches the center of the page
+        onEnter: () => setNavbarVisible(true), // Show the navbar 
+        onLeaveBack: () => setNavbarVisible(false), // Hide the navbar
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    sectionRefs.current.forEach((el) => {
-      if (el) observer.observe(el);
-    });
+    const handleLoad = () => {
+      window.removeEventListener('load', handleLoad);
+      runAnimations();
+    };
 
-    // Nav bar trigger (to show when the user scrolls to the "About me section")
-    ScrollTrigger.create({
-      trigger: "#about",
-      start: "top center", // When "About Me" section reaches the center of the page
-      onEnter: () => setNavbarVisible(true), // Show the navbar 
-      onLeaveBack: () => setNavbarVisible(false), // Hide the navbar
-    });
+    if (document.readyState === 'complete') {
+      runAnimations();
+    } else {
+      window.addEventListener('load', handleLoad);
+    }
 
     return () => {
-      // cleanup GSAP ScrollTriggers and observer
+      window.removeEventListener('load', handleLoad);
       ScrollTrigger.getAll().forEach((st) => st.kill());
-      observer.disconnect();
+      if (observer) {
+        observer.disconnect();
+      }
     };
   }, []);
 
