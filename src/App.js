@@ -17,6 +17,18 @@ import Slider from "react-slick";
 import headshot from "./images/headshot.jpg"
 import pic from "./images/pic1.jpg"
 import testCV from "./images/testCV.pdf";
+import cusec2024_group from "./images/cusec2024_group.PNG";
+import cusec2024_team from "./images/cusec2024_team.jpg";
+import cusec2025_group from "./images/cusec2025_group.PNG";
+import cusec2025_team from "./images/cusec2025_team.JPG";
+import uOttaHack_crowd from "./images/uOttaHack_crowd.jpg";
+import uOttaHack_team from "./images/uOttaHack_team.jpg";
+import rl_project from "./images/rl_project.png";
+import portfolio_project from "./images/portfolio.png";
+import wanderlens_project from "./images/WanderLens.png";
+import softwarehair_project from "./images/SoftwareHair_project.png";
+import hotel_project from "./images/hotel_project.png";
+import goodcycle_project from "./images/goodCycle_project.png";
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -36,6 +48,9 @@ function App() {
   const [currentTrack, setCurrentTrack] = useState(null);
   const [expandedExperience, setExpandedExperience] = useState('gcsurplus'); // Default to showing GCsurplus
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [expandedProjects, setExpandedProjects] = useState({}); // Track expanded projects
+  const [selectedStrength, setSelectedStrength] = useState('leadership'); // Default to leadership
+  const [selectedInterest, setSelectedInterest] = useState('music'); // Default to music
   
 
   useEffect(() => {
@@ -181,6 +196,13 @@ function App() {
     // Close mobile menu after clicking
     setMobileMenuOpen(false);
   };
+
+  const toggleProject = (projectId) => {
+    setExpandedProjects(prev => ({
+      ...prev,
+      [projectId]: !prev[projectId]
+    }));
+  };
   
 
   const carouselSettings = {
@@ -201,8 +223,8 @@ function App() {
         body: (
           <>
             <p>Hi! I'm Tara, a software engineer with a passion for building intuitive, impactful applications.</p>
-            <p>I love blending creativity with problem-solving, whether it's designing user-friendly interfaces or tackling complex algorithms. My journey into tech began with curiosity and has evolved into a deep commitment to creating solutions that make a difference.</p>
-            <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or mentoring aspiring developers in my community.</p>
+            <p>I love blending creativity with problem-solving, like designing user-friendly interfaces. My journey into tech began with curiosity and has evolved into a deep commitment to creating solutions that make a difference.</p>
+            <p>When I'm not coding, you can find me exploring new technologies and doing art. I love mentoring aspiring developers in my community.</p>
             <p>I believe in the power of technology to transform lives and am constantly seeking new ways to learn, grow, and contribute to meaningful projects.</p>
           </>
         )
@@ -214,7 +236,7 @@ function App() {
             <h3>University of Ottawa</h3>
             <p><strong>Honours Bachelor of Science (BSc) in Computer Science</strong></p>
             <p><strong>GPA: 7.25/10 (3.4/4.0)</strong></p>
-            <p><strong>Expected Graduation: May 2026</strong></p>
+            <p><strong>Expected Graduation: 2026</strong></p>
             <br />
             <p>At the University of Ottawa, I've developed a strong foundation in software development, algorithms, and systems design. My coursework has equipped me with both technical expertise and problem-solving skills essential for creating efficient, scalable solutions.</p>
             <p>I've been actively involved in student organizations, hackathons, and collaborative projects that have honed my leadership and teamwork skills.</p>
@@ -226,12 +248,12 @@ function App() {
         body: (
           <>
             <ul style={{lineHeight: '1.8'}}>
-              <li><strong>Data Structures & Algorithms:</strong> Advanced problem-solving and optimization techniques</li>
-              <li><strong>Object-Oriented Programming:</strong> Design patterns and software architecture</li>
-              <li><strong>Web Development:</strong> Full-stack development with modern frameworks</li>
-              <li><strong>Database Systems:</strong> SQL/NoSQL, data modeling, and query optimization</li>
-              <li><strong>Computer Architecture:</strong> Low-level systems and hardware-software interaction</li>
-              <li><strong>Entrepreneurial Creativity:</strong> Product development and business strategy</li>
+              <li><strong>Data Structures & Algorithms:</strong> The concept of abstract data types. Simple methods of complexity analysis, trees, graphs and simple graph algorithms.</li>
+              <li><strong>Databases 1:</strong> Fundamental database concepts. Entity-Relationship modeling, Relational algebra, Database definition and manipulation using SQL. </li>
+              <li><strong>Design and Analysis of Algorithms:</strong> Analysis of algorithms: worst-case analysis, complexity analysis, asymptotic notations and basic complexity classes.</li>
+              <li><strong>Introduction to Data Communications and Networking:</strong> Overview of computer networking, communication and transmission systems.</li>
+              <li><strong>Operating Systems:</strong> Principles of operating systems. Operating systems design issues. </li>
+              <li><strong>Professional Practice in Computing:</strong> Professionalism in Computer Science. Ethical practice. Intellectual property rights. Social impact of computing.</li>
             </ul>
           </>
         )
@@ -311,7 +333,6 @@ function App() {
             <span className="badge">Creative</span>
             <span className="badge">Team Player</span>
             <span className="badge">Leader</span>
-            <span className="badge">World Learner</span>
           </div>
         </div>
         <div className="about-content">
@@ -329,7 +350,7 @@ function App() {
             >
               <h2>Description</h2>
               <p>
-              Hi! I'm Tara, a software engineer based in Ottawa. I love creating visually appealing solutions to complex problems and exploring new technologies. When I'm not coding, you'll find me volunteering in my community, practicing arts or working on side projects.
+              Hi! I'm Tara, a software engineer based in Ontario Canada! I love creating visually appealing solutions to complex problems and exploring new technologies. When I'm not coding, you'll find me volunteering in my community, practicing arts or working on side projects.
               </p>
               <span className="card-hint">Click to learn more →</span>
             </div>
@@ -339,7 +360,7 @@ function App() {
               onClick={() => openModal('education')}
             >
               <h2>Education</h2>
-              <p>I'm pursuing an Honours Bachelor of Science in Computer Science at the University of Ottawa, graduating in May 2026.</p>
+              <p>I'm pursuing an Honours Bachelor of Science in Computer Science at the University of Ottawa, graduating in 2026.</p>
               <span className="card-hint">Click to learn more →</span>
             </div>
             <div 
@@ -421,147 +442,192 @@ function App() {
           {/* Project 1 */}
           <div className="project-card">
             <div className="project-image">
-              <img src="" alt="Reinforcement Learning Research" className="placeholder-img" />
+              <img src={rl_project} alt="Reinforcement Learning Research" />
             </div>
             <div className="project-content">
-              <h3>Reinforcement Learning Research</h3>
-              <p className="project-type">Machine Learning Honours Project (uOttawa)</p>
-              <p>Built a sparse reward framework using Gymnasium to design and executed 90-job hyperparameter sweeps on a compute cluster, analyzing task variance and pre-layer initialization across AntMaze, Hopper-v4, and Walker2d-v4.</p>
-              <div className="project-tech">
-                <span className="tech-tag">Python</span>
-                <span className="tech-tag">PyTorch</span>
-                <span className="tech-tag">Gymnasium</span>
-                <span className="tech-tag">AntMaze</span>
-                <span className="tech-tag">Ant-v4</span>
-                <span className="tech-tag">Hopper-v4</span>
-                <span className="tech-tag">Walker2d-v4</span>
+              <div className="project-header" onClick={() => toggleProject('project1')}>
+                <h3>Reinforcement Learning Research</h3>
+                <span className="expand-icon">{expandedProjects['project1'] ? '▼' : '▶'}</span>
               </div>
-              <a href="https://github.com/fayy-lee/rl_training.git" target="_blank" rel="noopener noreferrer" className="github-link">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View on GitHub
-              </a>
+              <p className="project-type">Machine Learning Honours Project (uOttawa)</p>
+              {expandedProjects['project1'] && (
+                <>
+                  <p>Built a sparse reward framework using Gymnasium to design and executed 90-job hyperparameter sweeps on a compute cluster, analyzing task variance and pre-layer initialization across AntMaze, Hopper-v4, and Walker2d-v4.</p>
+                  <div className="project-tech">
+                    <span className="tech-tag">Python</span>
+                    <span className="tech-tag">PyTorch</span>
+                    <span className="tech-tag">Gymnasium</span>
+                    <span className="tech-tag">AntMaze</span>
+                    <span className="tech-tag">Ant-v4</span>
+                    <span className="tech-tag">Hopper-v4</span>
+                    <span className="tech-tag">Walker2d-v4</span>
+                  </div>
+                  <a href="https://github.com/fayy-lee/rl_training.git" target="_blank" rel="noopener noreferrer" className="github-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                  </a>
+                </>
+              )}
             </div>
           </div>
 
           {/* Project 2 */}
           <div className="project-card">
             <div className="project-image">
-              <img src="" alt="Personal Website" className="placeholder-img" />
+              <img src={portfolio_project} alt="Personal Website" />
             </div>
             <div className="project-content">
-              <h3>Personal Website (You are here!)</h3>
-              <p className="project-type">React.js Portfolio</p>
-              <p>Built a responsive React.js portfolio using GSAP, @react-three/fiber, JavaScript, HTML, and CSS, with scroll-triggered animations for cross-device accessibility, optimized GSAP timelines for fast load times, and enhanced SEO.</p>
-              <div className="project-tech">
-                <span className="tech-tag">React.js</span>
-                <span className="tech-tag">GSAP</span>
-                <span className="tech-tag">Three.js</span>
-                <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">HTML</span>
-                <span className="tech-tag">CSS</span>
+              <div className="project-header" onClick={() => toggleProject('project2')}>
+                <h3>Personal Website</h3>
+                <span className="expand-icon">{expandedProjects['project2'] ? '▼' : '▶'}</span>
               </div>
-              <a href="https://github.com/taradenaud/tara_portfolio.git" target="_blank" rel="noopener noreferrer" className="github-link">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View on GitHub
-              </a>
+              <p className="project-type">
+                React.js Portfolio
+                <span className="you-are-here-chip">You are here!</span>
+              </p>
+              {expandedProjects['project2'] && (
+                <>
+                  <p>Built a responsive React.js portfolio using GSAP, @react-three/fiber, JavaScript, HTML, and CSS, with scroll-triggered animations for cross-device accessibility, optimized GSAP timelines for fast load times, and enhanced SEO.</p>
+                  <div className="project-tech">
+                    <span className="tech-tag">React.js</span>
+                    <span className="tech-tag">GSAP</span>
+                    <span className="tech-tag">Three.js</span>
+                    <span className="tech-tag">JavaScript</span>
+                    <span className="tech-tag">HTML</span>
+                    <span className="tech-tag">CSS</span>
+                  </div>
+                  <a href="https://github.com/taradenaud/tara_portfolio.git" target="_blank" rel="noopener noreferrer" className="github-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                  </a>
+                </>
+              )}
             </div>
           </div>
 
           {/* Project 3 */}
           <div className="project-card">
             <div className="project-image">
-              <img src="" alt="WanderLens Photography" className="placeholder-img" />
+              <img src={wanderlens_project} alt="WanderLens Photography" />
             </div>
             <div className="project-content">
-              <h3>WanderLens Photography Service Platform</h3>
-              <p className="project-type">Full-Stack Web Application</p>
-              <p>Developed a bilingual photography platform (EN/FR) with custom image-search features, optimized JavaScript, HTML, and CSS for fast load performance, improved SEO, and enhanced mobile responsiveness.</p>
-              <div className="project-tech">
-                <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">HTML</span>
-                <span className="tech-tag">CSS</span>
+              <div className="project-header" onClick={() => toggleProject('project3')}>
+                <h3>WanderLens Photography Service Platform</h3>
+                <span className="expand-icon">{expandedProjects['project3'] ? '▼' : '▶'}</span>
               </div>
-              <a href="https://github.com/taradenaud/WanderLens-Phtotgraphy-Services.git" target="_blank" rel="noopener noreferrer" className="github-link">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View on GitHub
-              </a>
+              <p className="project-type">Full-Stack Web Application</p>
+              {expandedProjects['project3'] && (
+                <>
+                  <p>Developed a bilingual photography platform (EN/FR) with custom image-search features, optimized JavaScript, HTML, and CSS for fast load performance, improved SEO, and enhanced mobile responsiveness.</p>
+                  <div className="project-tech">
+                    <span className="tech-tag">JavaScript</span>
+                    <span className="tech-tag">HTML</span>
+                    <span className="tech-tag">CSS</span>
+                  </div>
+                  <a href="https://github.com/taradenaud/WanderLens-Phtotgraphy-Services.git" target="_blank" rel="noopener noreferrer" className="github-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                  </a>
+                </>
+              )}
             </div>
           </div>
 
           {/* Project 4 */}
           <div className="project-card">
             <div className="project-image">
-              <img src="" alt="Software Salon Hub" className="placeholder-img" />
+              <img src={softwarehair_project} alt="Software Salon Hub" />
             </div>
             <div className="project-content">
-              <h3>Software Salon Hub</h3>
-              <p className="project-type">Web Application</p>
-              <p>Engineered a responsive beauty salon website with HTML, CSS, JavaScript, and Bootstrap, integrating a dynamic carousel and booking modal while improving cross-device accessibility and reducing UI friction on mobile and desktop.</p>
-              <div className="project-tech">
-                <span className="tech-tag">HTML</span>
-                <span className="tech-tag">CSS</span>
-                <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">Bootstrap</span>
+              <div className="project-header" onClick={() => toggleProject('project4')}>
+                <h3>Software Salon Hub</h3>
+                <span className="expand-icon">{expandedProjects['project4'] ? '▼' : '▶'}</span>
               </div>
-              <a href="https://github.com/taradenaud/Software_Soft_Hair.git" target="_blank" rel="noopener noreferrer" className="github-link">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View on GitHub
-              </a>
+              <p className="project-type">Web Application</p>
+              {expandedProjects['project4'] && (
+                <>
+                  <p>Engineered a responsive beauty salon website with HTML, CSS, JavaScript, and Bootstrap, integrating a dynamic carousel and booking modal while improving cross-device accessibility and reducing UI friction on mobile and desktop.</p>
+                  <div className="project-tech">
+                    <span className="tech-tag">HTML</span>
+                    <span className="tech-tag">CSS</span>
+                    <span className="tech-tag">JavaScript</span>
+                    <span className="tech-tag">Bootstrap</span>
+                  </div>
+                  <a href="https://github.com/taradenaud/Software_Soft_Hair.git" target="_blank" rel="noopener noreferrer" className="github-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                  </a>
+                </>
+              )}
             </div>
           </div>
 
           {/* Project 5 */}
           <div className="project-card">
             <div className="project-image">
-              <img src="" alt="Simulated Hotel Database" className="placeholder-img" />
+              <img src={hotel_project} alt="Simulated Hotel Database" />
             </div>
             <div className="project-content">
-              <h3>Simulated Hotel Database</h3>
-              <p className="project-type">Full-Stack Web Application</p>
-              <p>Built a hotel booking system using SQL, JavaScript, HTML, and CSS, creating a searchable reservation interface with filters that dynamically query the database, improving user experience for guests and administrators.</p>
-              <div className="project-tech">
-                <span className="tech-tag">SQL</span>
-                <span className="tech-tag">JavaScript</span>
-                <span className="tech-tag">HTML</span>
-                <span className="tech-tag">CSS</span>
+              <div className="project-header" onClick={() => toggleProject('project5')}>
+                <h3>Simulated Hotel Database</h3>
+                <span className="expand-icon">{expandedProjects['project5'] ? '▼' : '▶'}</span>
               </div>
-              <a href="https://github.com/taradenaud/Hotel-Management-Project.git" target="_blank" rel="noopener noreferrer" className="github-link">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View on GitHub
-              </a>
+              <p className="project-type">Full-Stack Web Application</p>
+              {expandedProjects['project5'] && (
+                <>
+                  <p>Built a hotel booking system using SQL, JavaScript, HTML, and CSS, creating a searchable reservation interface with filters that dynamically query the database, improving user experience for guests and administrators.</p>
+                  <div className="project-tech">
+                    <span className="tech-tag">SQL</span>
+                    <span className="tech-tag">JavaScript</span>
+                    <span className="tech-tag">HTML</span>
+                    <span className="tech-tag">CSS</span>
+                  </div>
+                  <a href="https://github.com/taradenaud/Hotel-Management-Project.git" target="_blank" rel="noopener noreferrer" className="github-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                  </a>
+                </>
+              )}
             </div>
           </div>
 
           {/* Project 6 */}
           <div className="project-card">
             <div className="project-image">
-              <img src="" alt="Good Cycle" className="placeholder-img" />
+              <img src={goodcycle_project} alt="Good Cycle" />
             </div>
             <div className="project-content">
-              <h3>Good Cycle</h3>
-              <p className="project-type">Android Application</p>
-              <p>Engineered a cycling app using Android Studio, Java, and Firebase, with multi-role functionality, catering to admins, club owners, and participants, to provide tailored user experiences and streamline cycling event management.</p>
-              <div className="project-tech">
-                <span className="tech-tag">Android Studio</span>
-                <span className="tech-tag">Java</span>
-                <span className="tech-tag">Firebase</span>
+              <div className="project-header" onClick={() => toggleProject('project6')}>
+                <h3>Good Cycle</h3>
+                <span className="expand-icon">{expandedProjects['project6'] ? '▼' : '▶'}</span>
               </div>
-              <a href="https://github.com/taradenaud/GoodCycle.git" target="_blank" rel="noopener noreferrer" className="github-link">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                View on GitHub
-              </a>
+              <p className="project-type">Android Application</p>
+              {expandedProjects['project6'] && (
+                <>
+                  <p>Engineered a cycling app using Android Studio, Java, and Firebase, with multi-role functionality, catering to admins, club owners, and participants, to provide tailored user experiences and streamline cycling event management.</p>
+                  <div className="project-tech">
+                    <span className="tech-tag">Android Studio</span>
+                    <span className="tech-tag">Java</span>
+                    <span className="tech-tag">Firebase</span>
+                  </div>
+                  <a href="https://github.com/taradenaud/GoodCycle.git" target="_blank" rel="noopener noreferrer" className="github-link">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    View on GitHub
+                  </a>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -752,8 +818,8 @@ function App() {
                     <li>Collaborate with conference organizing team to deliver high-quality educational content</li>
                   </ul>
                   <div className="community-images">
-                    <img src="" alt="CUSEC 2025 Event" className="community-img placeholder-img" />
-                    <img src="" alt="CUSEC Speakers" className="community-img placeholder-img" />
+                    <img src={cusec2025_group} alt="CUSEC 2025 Event" className="community-img" />
+                    <img src={cusec2025_team} alt="CUSEC Speakers" className="community-img" />
                   </div>
                   <a href="https://www.linkedin.com/posts/taradenaud_as-cusec-2025-cusec-canadian-university-activity-7286139058676723713-EnTX?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD6kp5ABv7LtaX6I914rUlrnXX1bWc7KaZo" target="_blank" rel="noopener noreferrer" className="linkedin-link">
                     Check out my LinkedIn post about it here →
@@ -786,8 +852,8 @@ function App() {
                     <li>Facilitated networking opportunities and represented uOttawa at Canada's premier student tech conference</li>
                   </ul>
                   <div className="community-images">
-                    <img src="" alt="CUSEC 2024 Delegation" className="community-img placeholder-img" />
-                    <img src="" alt="uOttawa Team" className="community-img placeholder-img" />
+                    <img src={cusec2024_group} alt="CUSEC 2024 Delegation" className="community-img" />
+                    <img src={cusec2024_team} alt="uOttawa Team" className="community-img" />
                   </div>
                 </div>
               )}
@@ -815,8 +881,8 @@ function App() {
               <li>Coordinate with sponsorship and logistics teams to maximize event reach</li>
             </ul>
             <div className="community-images">
-              <img src="" alt="uOttaHack Event" className="community-img placeholder-img" />
-              <img src="" alt="uOttaHack Team" className="community-img placeholder-img" />
+              <img src={uOttaHack_crowd} alt="uOttaHack Event" className="community-img" />
+              <img src={uOttaHack_team} alt="uOttaHack Team" className="community-img" />
             </div>
           </div>
           <div className={`content content3 ${activeTab === 2 ? "active-content" : ""}`}>
@@ -845,77 +911,149 @@ function App() {
         <h2>Core Strengths</h2>
         <p className="skills-subtitle">Combining my technical expertise with leadership and collaboration</p>
         
-        <div className="skills-grid">
-          {/* Leadership */}
-          <div className="skill-card">
-            <FaCrown className="skill-icon" />
-            <h3>Leadership</h3>
-            <p className="skill-description">Proven track record leading teams and organizations to achieve ambitious goals</p>
-            <ul className="skill-examples">
-              <li>VP Communications & Social Affairs - 1,200+ students</li>
-              <li>Director of Speakers at CUSEC - National conference</li>
-              <li>Head Delegate - 41-student delegation</li>
-            </ul>
+        <div className="skills-interactive-layout">
+          {/* Left side - clickable cards */}
+          <div className="skills-cards-list">
+            <div 
+              className={`skill-mini-card ${selectedStrength === 'leadership' ? 'active' : ''}`}
+              onClick={() => setSelectedStrength('leadership')}
+            >
+              <FaCrown className="skill-mini-icon" />
+              <span>Leadership</span>
+            </div>
+
+            <div 
+              className={`skill-mini-card ${selectedStrength === 'communication' ? 'active' : ''}`}
+              onClick={() => setSelectedStrength('communication')}
+            >
+              <FaComments className="skill-mini-icon" />
+              <span>Communication</span>
+            </div>
+
+            <div 
+              className={`skill-mini-card ${selectedStrength === 'project' ? 'active' : ''}`}
+              onClick={() => setSelectedStrength('project')}
+            >
+              <FaChartLine className="skill-mini-icon" />
+              <span>Project Management</span>
+            </div>
+
+            <div 
+              className={`skill-mini-card ${selectedStrength === 'collaboration' ? 'active' : ''}`}
+              onClick={() => setSelectedStrength('collaboration')}
+            >
+              <FaHandshake className="skill-mini-icon" />
+              <span>Collaboration</span>
+            </div>
+
+            <div 
+              className={`skill-mini-card ${selectedStrength === 'problem' ? 'active' : ''}`}
+              onClick={() => setSelectedStrength('problem')}
+            >
+              <FaPuzzlePiece className="skill-mini-icon" />
+              <span>Problem Solving</span>
+            </div>
+
+            <div 
+              className={`skill-mini-card ${selectedStrength === 'mentorship' ? 'active' : ''}`}
+              onClick={() => setSelectedStrength('mentorship')}
+            >
+              <FaSeedling className="skill-mini-icon" />
+              <span>Mentorship</span>
+            </div>
           </div>
 
-          {/* Communication */}
-          <div className="skill-card">
-            <FaComments className="skill-icon" />
-            <h3>Communication</h3>
-            <p className="skill-description">Expert at translating complex technical concepts for diverse audiences</p>
-            <ul className="skill-examples">
-              <li>Monthly newsletters for CS student body</li>
-              <li>Speaker coordination and negotiations</li>
-              <li>Cross-functional team collaboration</li>
-            </ul>
-          </div>
+          {/* Right side - detailed content */}
+          <div className="skills-detail-panel">
+            {selectedStrength === 'leadership' && (
+              <div className="skill-detail">
+                <div className="skill-detail-header">
+                  <FaCrown className="skill-detail-icon" />
+                  <h3>Leadership</h3>
+                </div>
+                <p className="skill-description">Proven track record leading teams and organizations to achieve ambitious goals</p>
+                <ul className="skill-examples">
+                  <li>VP Communications & Social Affairs - 1,200+ students</li>
+                  <li>Director of Speakers at CUSEC - National conference</li>
+                  <li>Head Delegate - 41-student delegation</li>
+                </ul>
+              </div>
+            )}
 
-          {/* Project Management */}
-          <div className="skill-card">
-            <FaChartLine className="skill-icon" />
-            <h3>Project Management</h3>
-            <p className="skill-description">Skilled at coordinating complex initiatives with multiple stakeholders</p>
-            <ul className="skill-examples">
-              <li>Welcome Week operations - $10K+ budget</li>
-              <li>87-person trip coordination</li>
-              <li>Multiple deployment releases at GCsurplus</li>
-            </ul>
-          </div>
+            {selectedStrength === 'communication' && (
+              <div className="skill-detail">
+                <div className="skill-detail-header">
+                  <FaComments className="skill-detail-icon" />
+                  <h3>Communication</h3>
+                </div>
+                <p className="skill-description">Expert at translating complex technical concepts for diverse audiences</p>
+                <ul className="skill-examples">
+                  <li>Monthly newsletters for CS student body</li>
+                  <li>Speaker coordination and negotiations</li>
+                  <li>Cross-functional team collaboration</li>
+                </ul>
+              </div>
+            )}
 
-          {/* Collaboration */}
-          <div className="skill-card">
-            <FaHandshake className="skill-icon" />
-            <h3>Collaboration</h3>
-            <p className="skill-description">Thrive in team environments and build strong working relationships</p>
-            <ul className="skill-examples">
-              <li>Cross-functional team coordination</li>
-              <li>Conference organizing committee member</li>
-              <li>Faculty council representation</li>
-            </ul>
-          </div>
+            {selectedStrength === 'project' && (
+              <div className="skill-detail">
+                <div className="skill-detail-header">
+                  <FaChartLine className="skill-detail-icon" />
+                  <h3>Project Management</h3>
+                </div>
+                <p className="skill-description">Skilled at coordinating complex initiatives with multiple stakeholders</p>
+                <ul className="skill-examples">
+                  <li>Welcome Week operations - $10K+ budget</li>
+                  <li>87-person trip coordination</li>
+                  <li>Multiple deployment releases at GCsurplus</li>
+                </ul>
+              </div>
+            )}
 
-          {/* Problem Solving */}
-          <div className="skill-card">
-            <FaPuzzlePiece className="skill-icon" />
-            <h3>Problem Solving</h3>
-            <p className="skill-description">Analytical approach to identifying and resolving technical challenges</p>
-            <ul className="skill-examples">
-              <li>SQL database optimization for scalability</li>
-              <li>Hyperparameter tuning in ML research</li>
-              <li>Quality assurance for government systems</li>
-            </ul>
-          </div>
+            {selectedStrength === 'collaboration' && (
+              <div className="skill-detail">
+                <div className="skill-detail-header">
+                  <FaHandshake className="skill-detail-icon" />
+                  <h3>Collaboration</h3>
+                </div>
+                <p className="skill-description">Thrive in team environments and build strong working relationships</p>
+                <ul className="skill-examples">
+                  <li>Cross-functional team coordination</li>
+                  <li>Conference organizing committee member</li>
+                  <li>Faculty council representation</li>
+                </ul>
+              </div>
+            )}
 
-          {/* Mentorship */}
-          <div className="skill-card">
-            <FaSeedling className="skill-icon" />
-            <h3>Mentorship</h3>
-            <p className="skill-description">Passionate about guiding and developing emerging talent</p>
-            <ul className="skill-examples">
-              <li>Supervised two junior executives</li>
-              <li>Delegation leadership and support</li>
-              <li>Student community engagement</li>
-            </ul>
+            {selectedStrength === 'problem' && (
+              <div className="skill-detail">
+                <div className="skill-detail-header">
+                  <FaPuzzlePiece className="skill-detail-icon" />
+                  <h3>Problem Solving</h3>
+                </div>
+                <p className="skill-description">Analytical approach to identifying and resolving technical challenges</p>
+                <ul className="skill-examples">
+                  <li>SQL database optimization for scalability</li>
+                  <li>Hyperparameter tuning in ML research</li>
+                  <li>Quality assurance for government systems</li>
+                </ul>
+              </div>
+            )}
+
+            {selectedStrength === 'mentorship' && (
+              <div className="skill-detail">
+                <div className="skill-detail-header">
+                  <FaSeedling className="skill-detail-icon" />
+                  <h3>Mentorship</h3>
+                </div>
+                <p className="skill-description">Passionate about guiding and developing emerging talent</p>
+                <ul className="skill-examples">
+                  <li>Supervised two junior executives</li>
+                  <li>Delegation leadership and support</li>
+                  <li>Student community engagement</li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -923,70 +1061,65 @@ function App() {
       {/* Beyond Code - Personal Interests Section */}
       <section ref={(el) => (sectionRefs.current[6] = el)} id="interests" className="section container">
         <h2>Beyond Code</h2>
-        <p className="interests-subtitle">Life outside the terminal - exploring passions and creativity</p>
+        <p className="beyond-subtitle">Quick glimpse into life outside of coding</p>
         
-        <div className="interests-content">
-          {/* Personal Interests Grid */}
-          <div className="interests-grid">
-            <div className="interest-card">
-              <FaMusic className="interest-icon" />
-              <h3>Music Lover</h3>
-              <p>From jazz to electronic beats, music fuels my coding sessions and creative thinking. I'm always discovering new artists and genres.</p>
+        <div className="beyond-wrapper">
+          <div className="interests-pills">
+            <div 
+              className={`pill ${selectedInterest === 'music' ? 'active' : ''}`}
+              onClick={() => setSelectedInterest('music')}
+            >
+              <FaMusic /> Music
             </div>
-
-            <div className="interest-card">
-              <FaPlane className="interest-icon" />
-              <h3>Travel Enthusiast</h3>
-              <p>Whether it's a weekend road trip or international adventures, I love experiencing the world, exploring new cultures and perspectives.</p>
+            <div 
+              className={`pill ${selectedInterest === 'travel' ? 'active' : ''}`}
+              onClick={() => setSelectedInterest('travel')}
+            >
+              <FaPlane /> Travel
             </div>
-
-            <div className="interest-card">
-              <FaPalette className="interest-icon" />
-              <h3>Creative Expression</h3>
-              <p>Photography, design, and visual storytelling. I believe great software is where technology meets art!</p>
+            <div 
+              className={`pill ${selectedInterest === 'design' ? 'active' : ''}`}
+              onClick={() => setSelectedInterest('design')}
+            >
+              <FaPalette /> Design
             </div>
-
-            <div className="interest-card">
-              <FaCoffee className="interest-icon" />
-              <h3>Coffee Connoisseur</h3>
-              <p>Fueled by great coffee and meaningful conversations. Local coffee shops are my favorite remote work spots.</p>
+            <div 
+              className={`pill ${selectedInterest === 'coffee' ? 'active' : ''}`}
+              onClick={() => setSelectedInterest('coffee')}
+            >
+              <FaCoffee /> Coffee
             </div>
           </div>
-
-          {/* Spotify Integration */}
-          <div className="spotify-section">
-            <h3 className="spotify-title">Currently Vibing To</h3>
-            <div className="spotify-widget">
-              {currentTrack ? (
-                <div className="track-info">
-                  <img src={currentTrack.albumArt} alt="Album art" className="album-art" />
-                  <div className="track-details">
-                    <h4>{currentTrack.name}</h4>
-                    <p className="artist">{currentTrack.artist}</p>
-                    <p className="album">{currentTrack.album}</p>
-                  </div>
-                </div>
-              ) : (
-                <div className="spotify-placeholder">
-                  <p>Connect your Spotify to see what I'm listening to!</p>
-                  <p className="spotify-note">Check out my playlists and discover new music</p>
-                  {/* Embed a public Spotify playlist as placeholder */}
-                  <div className="playlist-embed">
-                    <iframe 
-                      style={{borderRadius: '12px'}} 
-                      src="" 
-                      width="100%" 
-                      height="152" 
-                      frameBorder="0" 
-                      allowFullScreen="" 
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                      loading="lazy"
-                      title="Spotify Playlist"
-                    ></iframe>
-                  </div>
-                </div>
-              )}
-            </div>
+          
+          <div className="interest-description">
+            {selectedInterest === 'music' && (
+              <p>From jazz to electronic beats, music fuels my creativity and focus. Always discovering new artists and genres.</p>
+            )}
+            {selectedInterest === 'travel' && (
+              <p>Whether it's a weekend road trip or international adventures, I love exploring new cultures and perspectives.</p>
+            )}
+            {selectedInterest === 'design' && (
+              <p>Photography, design, and visual storytelling. I believe great software is where technology meets art.</p>
+            )}
+            {selectedInterest === 'coffee' && (
+              <p>Fueled by great coffee and meaningful conversations. Local coffee shops are my favorite spots to work and think.</p>
+            )}
+          </div>
+          
+          <div className="playlist-box">
+            <p className="playlist-label">Current Vibes</p>
+            <iframe 
+              data-testid="embed-iframe"
+              style={{borderRadius: '8px'}} 
+              src="https://open.spotify.com/embed/playlist/0E9LxyA4S7SqPTBmY0cSy1?utm_source=generator" 
+              width="100%" 
+              height="152" 
+              frameBorder="0" 
+              allowFullScreen="" 
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+              loading="lazy"
+              title="Spotify Playlist"
+            ></iframe>
           </div>
         </div>
       </section>

@@ -1131,6 +1131,22 @@ p {
   font-weight: 600;
   margin: 0 0 1rem 0;
   opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.you-are-here-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.8rem;
+  background: linear-gradient(135deg, var(--mikado-yellow), var(--gold-yellow));
+  color: var(--oxford-blue);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 12px;
+  opacity: 1;
+  letter-spacing: 0.3px;
 }
 
 .project-content > p {
@@ -1272,11 +1288,217 @@ p {
 .skills-subtitle {
   text-align: center;
   color: var(--gold-yellow);
-  font-size: 1.1rem;
-  margin-bottom: 3rem;
-  opacity: 0.9;
+  font-size: 1.2rem;
+  margin-bottom: 3.5rem;
+  opacity: 0.95;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
+/* Interactive Skills Layout */
+.skills-interactive-layout {
+  display: flex;
+  gap: 2.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+  position: relative;
+}
+
+.skills-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-width: 260px;
+  position: relative;
+}
+
+.skills-cards-list::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, transparent, var(--mikado-yellow), transparent);
+  border-radius: 2px;
+}
+
+.skill-mini-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.1rem 1.4rem;
+  background: linear-gradient(135deg, rgba(29, 40, 83, 0.4) 0%, rgba(53, 67, 130, 0.25) 100%);
+  border: 2px solid rgba(98, 111, 162, 0.25);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-mini-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(90deg, rgba(255, 195, 0, 0.1), transparent);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-mini-card:hover::before {
+  width: 100%;
+}
+
+.skill-mini-card:hover {
+  border-color: rgba(255, 195, 0, 0.6);
+  transform: translateX(8px) scale(1.02);
+  background: linear-gradient(135deg, rgba(29, 40, 83, 0.7) 0%, rgba(53, 67, 130, 0.5) 100%);
+  box-shadow: -4px 0 20px rgba(255, 195, 0, 0.15);
+}
+
+.skill-mini-card.active {
+  border-color: var(--mikado-yellow);
+  background: linear-gradient(135deg, rgba(53, 67, 130, 0.9) 0%, rgba(98, 111, 162, 0.7) 100%);
+  box-shadow: -6px 0 25px rgba(255, 195, 0, 0.3), 0 4px 20px rgba(255, 195, 0, 0.2);
+  transform: translateX(10px) scale(1.03);
+}
+
+.skill-mini-card.active::before {
+  width: 100%;
+}
+
+.skill-mini-icon {
+  font-size: 1.6rem;
+  color: var(--mikado-yellow);
+  flex-shrink: 0;
+}
+
+.skill-mini-card span {
+  color: var(--maize-yellow);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.skill-mini-card.active span {
+  color: #fff;
+  font-weight: 600;
+}
+
+.skills-detail-panel {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(29, 40, 83, 0.7) 0%, rgba(53, 67, 130, 0.5) 50%, rgba(29, 40, 83, 0.7) 100%);
+  border: 2px solid var(--mikado-yellow);
+  border-radius: 16px;
+  padding: 2.5rem;
+  min-height: fit-content;
+  animation: fadeInSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-detail-panel::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 195, 0, 0.05) 0%, transparent 70%);
+  animation: subtleFloat 8s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-10px, 10px) rotate(2deg);
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.skill-detail {
+  position: relative;
+  z-index: 1;
+}
+
+.skill-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid rgba(255, 195, 0, 0.2);
+}
+
+.skill-detail-icon {
+  font-size: 3rem;
+  color: var(--mikado-yellow);
+}
+
+.skill-detail h3 {
+  color: #fff;
+  font-size: 1.75rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.skill-description {
+  color: var(--gold-yellow);
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+  font-size: 1.05rem;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+  padding-left: 1rem;
+  border-left: 3px solid rgba(255, 195, 0, 0.3);
+}
+
+.skill-examples {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skill-examples li {
+  color: var(--maize-yellow);
+  line-height: 1.8;
+  padding: 0.6rem 0.8rem;
+  position: relative;
+  font-size: 1rem;
+  background: rgba(255, 195, 0, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid var(--mikado-yellow);
+  transition: all 0.3s ease;
+}
+
+.skill-examples li:hover {
+  background: rgba(255, 195, 0, 0.1);
+  border-left-color: var(--maize-yellow);
+}
+
+/* Old skills grid - kept for backwards compatibility */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1331,18 +1553,9 @@ p {
   color: var(--maize-yellow);
   line-height: 1.6;
   margin-bottom: 0.5rem;
-  padding-left: 1.5rem;
+  padding-left: 0;
   position: relative;
   font-size: 0.9rem;
-}
-
-.skill-examples li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--mikado-yellow);
-  font-weight: bold;
-  font-size: 1rem;
 }
 
 /* About Card Interactive Styles */
@@ -1653,67 +1866,96 @@ p {
 }
 
 /* Beyond Code - Personal Interests Section */
-.interests-subtitle {
+.beyond-subtitle {
   text-align: center;
   color: var(--gold-yellow);
   font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
+  margin-bottom: 2rem;
+  opacity: 0.85;
 }
 
-.interests-content {
-  max-width: 1200px;
+.beyond-wrapper {
+  max-width: 650px;
   margin: 0 auto;
 }
 
-.interests-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.interests-pills {
+  display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
 }
 
-.interest-card {
-  background: linear-gradient(180deg, rgba(29, 40, 83, 0.6) 0%, rgba(53, 67, 130, 0.4) 100%);
-  border: 2px solid rgba(98, 111, 162, 0.3);
-  border-radius: 12px;
-  padding: 1.25rem;
-  text-align: left;
-  transition: all 0.3s ease;
-}
-
-.interest-card:hover {
-  border-color: var(--mikado-yellow);
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(255, 195, 0, 0.15);
-}
-
-.interest-icon {
-  font-size: 2rem;
-  color: var(--mikado-yellow);
-  margin-bottom: 0.6rem;
-  display: block;
-  transition: all 0.3s ease;
-}
-
-.interest-card:hover .interest-icon {
-  color: var(--gold-yellow);
-  transform: scale(1.1);
-}
-
-.interest-card h3 {
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(53, 67, 130, 0.3);
+  border: 1px solid rgba(98, 111, 162, 0.4);
+  border-radius: 20px;
   color: var(--maize-yellow);
-  font-size: 1.1rem;
-  margin: 0 0 0.5rem 0;
-  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.interest-card p {
+.pill svg {
+  color: var(--mikado-yellow);
+  font-size: 1.1rem;
+}
+
+.pill:hover {
+  background: rgba(53, 67, 130, 0.5);
+  border-color: var(--mikado-yellow);
+}
+
+.pill.active {
+  background: rgba(53, 67, 130, 0.7);
+  border-color: var(--mikado-yellow);
+  box-shadow: 0 0 10px rgba(255, 195, 0, 0.2);
+}
+
+.interest-description {
+  text-align: center;
+  min-height: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.interest-description p {
   color: var(--gold-yellow);
-  font-size: 0.88rem;
-  line-height: 1.4;
+  font-size: 0.95rem;
+  line-height: 1.6;
   margin: 0;
-  opacity: 0.9;
+  padding: 0 1rem;
+  animation: fadeInText 0.3s ease;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.playlist-box {
+  background: rgba(29, 40, 83, 0.4);
+  border: 1px solid rgba(98, 111, 162, 0.3);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.playlist-label {
+  color: var(--gold-yellow);
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem 0;
+  text-align: center;
+  opacity: 0.85;
 }
 
 /* Spotify Section */
@@ -1721,20 +1963,20 @@ p {
   background: linear-gradient(135deg, rgba(29, 40, 83, 0.8) 0%, rgba(53, 67, 130, 0.6) 100%);
   border: 2px solid rgba(98, 111, 162, 0.4);
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 1rem;
   text-align: center;
   margin-top: 1.5rem;
 }
 
 .spotify-title {
   color: var(--maize-yellow);
-  font-size: 1.2rem;
-  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  margin: 0 0 0.75rem 0;
   font-weight: 600;
 }
 
 .spotify-widget {
-  max-width: 600px;
+  max-width: 450px;
   margin: 0 auto;
 }
 
@@ -1781,26 +2023,26 @@ p {
 
 .spotify-placeholder {
   background: rgba(0, 0, 0, 0.2);
-  padding: 1.25rem;
+  padding: 0.75rem;
   border-radius: 12px;
   border: 2px dashed rgba(98, 111, 162, 0.4);
 }
 
 .spotify-placeholder p {
   color: var(--gold-yellow);
-  font-size: 0.95rem;
-  margin: 0 0 0.35rem 0;
+  font-size: 0.85rem;
+  margin: 0 0 0.25rem 0;
 }
 
 .spotify-note {
   color: var(--yale-blue);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   opacity: 0.8;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.75rem !important;
 }
 
 .playlist-embed {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 /* ============================================
@@ -1870,8 +2112,17 @@ p {
   }
 
   /* Interests */
-  .interests-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .interests-pills {
+    gap: 0.75rem;
+  }
+
+  .pill {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .playlist-box {
+    padding: 0.85rem;
   }
 
   /* Contact Cards */
@@ -1922,6 +2173,54 @@ p {
 
   .about-cards {
     gap: 1rem;
+  }
+
+  /* Skills Section */
+  .skills-interactive-layout {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .skills-cards-list {
+    min-width: 100%;
+  }
+
+  .skills-cards-list::before {
+    display: none;
+  }
+
+  .skill-mini-card {
+    padding: 1rem 1.2rem;
+  }
+
+  .skill-mini-card:hover {
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .skill-mini-card.active {
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .skills-detail-panel {
+    padding: 1.75rem;
+    min-height: fit-content;
+  }
+
+  .skill-detail-icon {
+    font-size: 2.25rem;
+  }
+
+  .skill-detail h3 {
+    font-size: 1.4rem;
+  }
+
+  .skill-description {
+    font-size: 0.95rem;
+  }
+
+  .skill-examples li {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.6rem;
   }
 
   .about-card {
@@ -2025,17 +2324,21 @@ p {
   }
 
   /* Interests/Beyond Code */
-  .interests-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .interests-pills {
+    gap: 0.6rem;
   }
 
-  .interest-card {
-    padding: 1rem;
+  .pill {
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
   }
 
-  .interest-icon {
-    font-size: 1.75rem;
+  .pill svg {
+    font-size: 1rem;
+  }
+
+  .playlist-box {
+    padding: 0.75rem;
   }
 
   .spotify-section {

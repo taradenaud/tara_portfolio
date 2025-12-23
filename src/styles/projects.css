@@ -1,0 +1,31 @@
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  transition: opacity 0.2s ease;
+}
+
+.project-header:hover {
+  opacity: 0.8;
+}
+
+.project-header h3 {
+  margin: 0;
+  flex: 1;
+}
+
+.expand-icon {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--primary-color, #6366f1);
+  min-width: 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.project-type {
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
