@@ -138,13 +138,14 @@ p {
   list-style-type: none;
   display: flex;
   gap: 1.25rem;
-  color: var(--rich-black);
+  color: var(--marian-blue);
   align-items: center;
   position: relative; /* for indicator */
 }
 
 .navbar ul li {
   cursor: pointer;
+  color: var(--marian-blue);
 }
 
 .navbar ul li:hover {
@@ -161,7 +162,7 @@ p {
 .navbar-icons a {
   margin-left: 1rem;
   font-size: 1.5rem;
-  color: var(--rich-black);
+  color: var(--marian-blue);
 }
 
 .navbar-icons a:hover {
