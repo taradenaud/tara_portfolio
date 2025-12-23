@@ -16,7 +16,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import headshot from "./images/headshot.jpg"
 import pic from "./images/pic1.jpg"
-import testCV from "./images/testCV.pdf";
+import CV from "./images/CV.pdf";
 import cusec2024_group from "./images/cusec2024_group.PNG";
 import cusec2024_team from "./images/cusec2024_team.jpg";
 import cusec2025_group from "./images/cusec2025_group.PNG";
@@ -297,7 +297,7 @@ function App() {
         />
         <div className="navbar-icons">
 
-          <a href={testCV} target="blank" rel="noopener noreferrer" title="View Resume"> 
+          <a href={CV} target="blank" rel="noopener noreferrer" title="View Resume"> 
             <FontAwesomeIcon icon={faFile} /> </a>
           <a href="https://github.com/taradenaud" target="_blank" rel="noopener noreferrer" title="GitHub Profile">
             <FontAwesomeIcon icon={faGithub} />
@@ -1159,7 +1159,7 @@ function App() {
           </a>
 
           {/* Resume Card */}
-          <a href={testCV} className="contact-card" target="_blank" rel="noopener noreferrer">
+          <a href={CV} className="contact-card" target="_blank" rel="noopener noreferrer">
             <div className="contact-icon-wrapper">
               <FontAwesomeIcon icon={faFile} className="contact-icon" />
             </div>
