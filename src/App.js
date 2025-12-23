@@ -251,7 +251,6 @@ function App() {
               <li><strong>Data Structures & Algorithms:</strong> The concept of abstract data types. Simple methods of complexity analysis, trees, graphs and simple graph algorithms.</li>
               <li><strong>Databases 1:</strong> Fundamental database concepts. Entity-Relationship modeling, Relational algebra, Database definition and manipulation using SQL. </li>
               <li><strong>Design and Analysis of Algorithms:</strong> Analysis of algorithms: worst-case analysis, complexity analysis, asymptotic notations and basic complexity classes.</li>
-              <li><strong>Introduction to Data Communications and Networking:</strong> Overview of computer networking, communication and transmission systems.</li>
               <li><strong>Operating Systems:</strong> Principles of operating systems. Operating systems design issues. </li>
               <li><strong>Professional Practice in Computing:</strong> Professionalism in Computer Science. Ethical practice. Intellectual property rights. Social impact of computing.</li>
             </ul>
@@ -298,15 +297,15 @@ function App() {
         />
         <div className="navbar-icons">
 
-          <a href={testCV} target="_blank" rel="noopener noreferrer"> 
+          <a href={testCV} target="blank" rel="noopener noreferrer" title="View Resume"> 
             <FontAwesomeIcon icon={faFile} /> </a>
-          <a href="https://github.com/taradenaud" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/taradenaud" target="_blank" rel="noopener noreferrer" title="GitHub Profile">
             <FontAwesomeIcon icon={faGithub} />
           </a>
-          <a href="https://linkedin.com/in/taradenaud" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/in/taradenaud" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
-          <a href="mailto:taradenaud4@gmail.com"  target="_blank" rel="noopener noreferrer">
+          <a href="mailto:taradenaud4@gmail.com"  target="_blank" rel="noopener noreferrer" title="Send Email">
             <FontAwesomeIcon icon={faEnvelope} />
           </a>
         </div>
@@ -350,7 +349,7 @@ function App() {
             >
               <h2>Description</h2>
               <p>
-              Hi! I'm Tara, a software engineer based in Ontario Canada! I love creating visually appealing solutions to complex problems and exploring new technologies. When I'm not coding, you'll find me volunteering in my community, practicing arts or working on side projects.
+              Hi! I'm Tara, a software engineer based in Ontario, Canada! I love creating solutions to complex problems and exploring new technologies. When I'm not coding, I'm volunteering in my community, practicing arts or working on side projects.
               </p>
               <span className="card-hint">Click to learn more →</span>
             </div>
