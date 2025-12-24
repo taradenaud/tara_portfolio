@@ -14,21 +14,21 @@ import { ScrollTrigger, TextPlugin } from 'gsap/all';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import headshot from "./images/headshot.jpg"
-import pic from "./images/pic1.jpg"
+import headshot from "./images/headshot.webp"
+import pic from "./images/pic1.webp"
 import CV from "./images/CV.pdf";
-import cusec2024_group from "./images/cusec2024_group.PNG";
-import cusec2024_team from "./images/cusec2024_team.jpg";
-import cusec2025_group from "./images/cusec2025_group.PNG";
-import cusec2025_team from "./images/cusec2025_team.JPG";
-import uOttaHack_crowd from "./images/uOttaHack_crowd.jpg";
-import uOttaHack_team from "./images/uOttaHack_team.jpg";
-import rl_project from "./images/rl_project.png";
-import portfolio_project from "./images/portfolio.png";
-import wanderlens_project from "./images/WanderLens.png";
-import softwarehair_project from "./images/SoftwareHair_project.png";
-import hotel_project from "./images/hotel_project.png";
-import goodcycle_project from "./images/goodCycle_project.png";
+import cusec2024_group from "./images/cusec2024_group.webp";
+import cusec2024_team from "./images/cusec2024_team.webp";
+import cusec2025_group from "./images/cusec2025_group.webp";
+import cusec2025_team from "./images/cusec2025_team.webp";
+import uOttaHack_crowd from "./images/uOttaHack_crowd.webp";
+import uOttaHack_team from "./images/uOttaHack_team.webp";
+import rl_project from "./images/rl_project.webp";
+import portfolio_project from "./images/portfolio.webp";
+import wanderlens_project from "./images/WanderLens.webp";
+import softwarehair_project from "./images/SoftwareHair_project.webp";
+import hotel_project from "./images/hotel_project.webp";
+import goodcycle_project from "./images/goodCycle_project.webp";
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
