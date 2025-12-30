@@ -227,14 +227,14 @@ p {
 
   .navbar ul {
     position: fixed;
-    top: 60px;
+    top: 48px;
     left: 0;
     right: 0;
     background: rgba(29, 40, 83, 0.98);
     backdrop-filter: blur(10px);
     flex-direction: column;
     gap: 0;
-    padding: 1rem 0;
+    padding: 0;
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -252,6 +252,7 @@ p {
     width: 100%;
     text-align: left;
     border-bottom: 1px solid rgba(98, 111, 162, 0.2);
+    border-left: 4px solid transparent;
   }
 
   .navbar ul li:hover {
@@ -259,8 +260,10 @@ p {
   }
 
   .navbar ul li.active {
+    padding: 1rem 2rem;
     background: rgba(255, 195, 0, 0.15);
-    border-left: 4px solid var(--mikado-yellow);
+    border-left-color: var(--mikado-yellow);
+    font-weight: normal;
   }
 
   .nav-indicator {

@@ -216,16 +216,18 @@ function App() {
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-    const navHeight = document.querySelector(".navbar").offsetHeight; // Get nav bar height
-    const top = section.getBoundingClientRect().top + window.pageYOffset - navHeight - 40; // Add extra space
-  
+    if (!section) return;
+
+    const nav = document.querySelector('.navbar');
+    const navHeight = nav ? nav.offsetHeight : 0;
+    const extraOffset = window.innerWidth <= 900 ? 0 : 40; // Drop extra spacing on mobile to keep sections flush
+    const top = section.getBoundingClientRect().top + window.pageYOffset - navHeight - extraOffset;
+
     window.scrollTo({
       top,
-      behavior: "smooth",
-
+      behavior: 'smooth',
     });
-    
-    // Close mobile menu after clicking
+
     setMobileMenuOpen(false);
   };
 
