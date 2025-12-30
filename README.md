@@ -1,6 +1,6 @@
 # Tara Denaud | Portfolio
 
-A portfolio website showcasing my journey as a Computer Science student and software developer. Built with React and featuring animations and an immersive 3D star background.
+A portfolio website showcasing my journey as a Computer Science student and software developer. Built with React and featuring animations and an immersive 3D star (made on Blender 3D).
 
 🌐 **Live Site:** [taradenaud.com](https://taradenaud.com)
 
@@ -8,17 +8,17 @@ A portfolio website showcasing my journey as a Computer Science student and soft
 
 The portfolio features a **night-sky-inspired color palette**:
 
-This palette creates a **high-contrast, (hopefully) accessible design** that's both visually striking and easy to read, while maintaining a cohesive theme throughout.
-
 ### Color Palette Reference
 
-![#000814](https://img.shields.io/badge/Rich_Black-000814-000814?style=flat-square&labelColor=000814)
-![#001d3d](https://img.shields.io/badge/Oxford_Blue-001d3d-001d3d?style=flat-square&labelColor=001d3d)
-![#003566](https://img.shields.io/badge/Yale_Blue-003566-003566?style=flat-square&labelColor=003566)
-![#00428b](https://img.shields.io/badge/Marian_Blue-00428b-00428b?style=flat-square&labelColor=00428b)
-![#ffc300](https://img.shields.io/badge/Mikado_Yellow-ffc300-ffc300?style=flat-square&labelColor=ffc300)
-![#ffd60a](https://img.shields.io/badge/Gold_Yellow-ffd60a-ffd60a?style=flat-square&labelColor=ffd60a)
-![#fbec5d](https://img.shields.io/badge/Maize_Yellow-fbec5d-fbec5d?style=flat-square&labelColor=fbec5d)
+| Color | Hex | Usage |
+|-------|-----|-------|
+| ![#000814](https://img.shields.io/badge/Rich_Black-000814-000814?style=flat-square&labelColor=000814) | `#000814` | Deep backgrounds |
+| ![#001d3d](https://img.shields.io/badge/Oxford_Blue-001d3d-001d3d?style=flat-square&labelColor=001d3d) | `#001d3d` | Card backgrounds |
+| ![#003566](https://img.shields.io/badge/Yale_Blue-003566-003566?style=flat-square&labelColor=003566) | `#003566` | Secondary elements |
+| ![#00428b](https://img.shields.io/badge/Marian_Blue-00428b-00428b?style=flat-square&labelColor=00428b) | `#00428b` | Hover states |
+| ![#ffc300](https://img.shields.io/badge/Mikado_Yellow-ffc300-ffc300?style=flat-square&labelColor=ffc300) | `#ffc300` | Primary accents |
+| ![#ffd60a](https://img.shields.io/badge/Gold_Yellow-ffd60a-ffd60a?style=flat-square&labelColor=ffd60a) | `#ffd60a` | Interactive elements |
+| ![#fbec5d](https://img.shields.io/badge/Maize_Yellow-fbec5d-fbec5d?style=flat-square&labelColor=fbec5d) | `#fbec5d` | Text highlights |
 
 ## 🚀 How to Run Locally
 
