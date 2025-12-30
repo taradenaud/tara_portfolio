@@ -1,4 +1,4 @@
-# Tara Denaud | Software Developer Portfolio
+# Tara Denaud | Portfolio
 
 A portfolio website showcasing my journey as a Computer Science student and software developer. Built with React and featuring animations and an immersive 3D star background.
 
@@ -12,15 +12,15 @@ This palette creates a **high-contrast, (hopefully) accessible design** that's b
 
 ### Color Palette Reference
 
-| Color          | Hex                                                                  | Usage |
-| -------------- | -------------------------------------------------------------------- | ----- |
-| Rich Black     | ![#000814](https://via.placeholder.com/10/000814?text=+) `#000814`   | Deep backgrounds |
-| Oxford Blue    | ![#001d3d](https://via.placeholder.com/10/001d3d?text=+) `#001d3d`   | Card backgrounds |
-| Yale Blue      | ![#003566](https://via.placeholder.com/10/003566?text=+) `#003566`   | Secondary elements |
-| Marian Blue    | ![#00428b](https://via.placeholder.com/10/00428b?text=+) `#00428b`   | Hover states |
-| Mikado Yellow  | ![#ffc300](https://via.placeholder.com/10/ffc300?text=+) `#ffc300`   | Primary accents |
-| Gold Yellow    | ![#ffd60a](https://via.placeholder.com/10/ffd60a?text=+) `#ffd60a`   | Interactive elements |
-| Maize Yellow   | ![#fbec5d](https://via.placeholder.com/10/fbec5d?text=+) `#fbec5d`   | Text highlights |
+| Color          | Hex       | Usage |
+| -------------- | --------- | ----- |
+| Rich Black     | `#000814` | Deep backgrounds |
+| Oxford Blue    | `#001d3d` | Card backgrounds |
+| Yale Blue      | `#003566` | Secondary elements |
+| Marian Blue    | `#00428b` | Hover states |
+| Mikado Yellow  | `#ffc300` | Primary accents |
+| Gold Yellow    | `#ffd60a` | Interactive elements |
+| Maize Yellow   | `#fbec5d` | Text highlights |
 
 ## 🚀 How to Run Locally
 
