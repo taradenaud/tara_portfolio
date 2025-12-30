@@ -12,43 +12,13 @@ This palette creates a **high-contrast, (hopefully) accessible design** that's b
 
 ### Color Palette Reference
 
-<table>
-<tr>
-<td><img src="https://via.placeholder.com/80x30/000814/000814.png" alt="#000814"/></td>
-<td><strong>Rich Black</strong><br/><code>#000814</code></td>
-<td>Deep backgrounds</td>
-</tr>
-<tr>
-<td><img src="https://via.placeholder.com/80x30/001d3d/001d3d.png" alt="#001d3d"/></td>
-<td><strong>Oxford Blue</strong><br/><code>#001d3d</code></td>
-<td>Card backgrounds</td>
-</tr>
-<tr>
-<td><img src="https://via.placeholder.com/80x30/003566/003566.png" alt="#003566"/></td>
-<td><strong>Yale Blue</strong><br/><code>#003566</code></td>
-<td>Secondary elements</td>
-</tr>
-<tr>
-<td><img src="https://via.placeholder.com/80x30/00428b/00428b.png" alt="#00428b"/></td>
-<td><strong>Marian Blue</strong><br/><code>#00428b</code></td>
-<td>Hover states</td>
-</tr>
-<tr>
-<td><img src="https://via.placeholder.com/80x30/ffc300/ffc300.png" alt="#ffc300"/></td>
-<td><strong>Mikado Yellow</strong><br/><code>#ffc300</code></td>
-<td>Primary accents</td>
-</tr>
-<tr>
-<td><img src="https://via.placeholder.com/80x30/ffd60a/ffd60a.png" alt="#ffd60a"/></td>
-<td><strong>Gold Yellow</strong><br/><code>#ffd60a</code></td>
-<td>Interactive elements</td>
-</tr>
-<tr>
-<td><img src="https://via.placeholder.com/80x30/fbec5d/fbec5d.png" alt="#fbec5d"/></td>
-<td><strong>Maize Yellow</strong><br/><code>#fbec5d</code></td>
-<td>Text highlights</td>
-</tr>
-</table>
+![Rich Black](https://img.shields.io/badge/Rich_Black-000814-000814?style=for-the-badge)
+![Oxford Blue](https://img.shields.io/badge/Oxford_Blue-001d3d-001d3d?style=for-the-badge)
+![Yale Blue](https://img.shields.io/badge/Yale_Blue-003566-003566?style=for-the-badge)
+![Marian Blue](https://img.shields.io/badge/Marian_Blue-00428b-00428b?style=for-the-badge)
+![Mikado Yellow](https://img.shields.io/badge/Mikado_Yellow-ffc300-ffc300?style=for-the-badge)
+![Gold Yellow](https://img.shields.io/badge/Gold_Yellow-ffd60a-ffd60a?style=for-the-badge)
+![Maize Yellow](https://img.shields.io/badge/Maize_Yellow-fbec5d-fbec5d?style=for-the-badge)
 
 ## 🚀 How to Run Locally
 
