@@ -12,13 +12,13 @@ This palette creates a **high-contrast, (hopefully) accessible design** that's b
 
 ### Color Palette Reference
 
-![Rich Black](https://img.shields.io/badge/Rich_Black-000814-000814?style=for-the-badge)
-![Oxford Blue](https://img.shields.io/badge/Oxford_Blue-001d3d-001d3d?style=for-the-badge)
-![Yale Blue](https://img.shields.io/badge/Yale_Blue-003566-003566?style=for-the-badge)
-![Marian Blue](https://img.shields.io/badge/Marian_Blue-00428b-00428b?style=for-the-badge)
-![Mikado Yellow](https://img.shields.io/badge/Mikado_Yellow-ffc300-ffc300?style=for-the-badge)
-![Gold Yellow](https://img.shields.io/badge/Gold_Yellow-ffd60a-ffd60a?style=for-the-badge)
-![Maize Yellow](https://img.shields.io/badge/Maize_Yellow-fbec5d-fbec5d?style=for-the-badge)
+![#000814](https://img.shields.io/badge/Rich_Black-000814-000814?style=flat-square&labelColor=000814)
+![#001d3d](https://img.shields.io/badge/Oxford_Blue-001d3d-001d3d?style=flat-square&labelColor=001d3d)
+![#003566](https://img.shields.io/badge/Yale_Blue-003566-003566?style=flat-square&labelColor=003566)
+![#00428b](https://img.shields.io/badge/Marian_Blue-00428b-00428b?style=flat-square&labelColor=00428b)
+![#ffc300](https://img.shields.io/badge/Mikado_Yellow-ffc300-ffc300?style=flat-square&labelColor=ffc300)
+![#ffd60a](https://img.shields.io/badge/Gold_Yellow-ffd60a-ffd60a?style=flat-square&labelColor=ffd60a)
+![#fbec5d](https://img.shields.io/badge/Maize_Yellow-fbec5d-fbec5d?style=flat-square&labelColor=fbec5d)
 
 ## 🚀 How to Run Locally
 
