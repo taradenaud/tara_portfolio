@@ -12,13 +12,13 @@ The portfolio features a **night-sky-inspired color palette**:
 
 | Color | Hex | Usage |
 |-------|-----|-------|
-| ![#000814](https://img.shields.io/badge/Rich_Black-000814-000814?style=flat-square&labelColor=000814) | `#000814` | Deep backgrounds |
-| ![#001d3d](https://img.shields.io/badge/Oxford_Blue-001d3d-001d3d?style=flat-square&labelColor=001d3d) | `#001d3d` | Card backgrounds |
-| ![#003566](https://img.shields.io/badge/Yale_Blue-003566-003566?style=flat-square&labelColor=003566) | `#003566` | Secondary elements |
-| ![#00428b](https://img.shields.io/badge/Marian_Blue-00428b-00428b?style=flat-square&labelColor=00428b) | `#00428b` | Hover states |
-| ![#ffc300](https://img.shields.io/badge/Mikado_Yellow-ffc300-ffc300?style=flat-square&labelColor=ffc300) | `#ffc300` | Primary accents |
-| ![#ffd60a](https://img.shields.io/badge/Gold_Yellow-ffd60a-ffd60a?style=flat-square&labelColor=ffd60a) | `#ffd60a` | Interactive elements |
-| ![#fbec5d](https://img.shields.io/badge/Maize_Yellow-fbec5d-fbec5d?style=flat-square&labelColor=fbec5d) | `#fbec5d` | Text highlights |
+| ![Rich Black](https://img.shields.io/badge/Rich_Black-000814?style=flat-square) | `#000814` | Deep backgrounds |
+| ![Oxford Blue](https://img.shields.io/badge/Oxford_Blue-001d3d?style=flat-square) | `#001d3d` | Card backgrounds |
+| ![Yale Blue](https://img.shields.io/badge/Yale_Blue-003566?style=flat-square) | `#003566` | Secondary elements |
+| ![Marian Blue](https://img.shields.io/badge/Marian_Blue-00428b?style=flat-square) | `#00428b` | Hover states |
+| ![Mikado Yellow](https://img.shields.io/badge/Mikado_Yellow-ffc300?style=flat-square) | `#ffc300` | Primary accents |
+| ![Gold Yellow](https://img.shields.io/badge/Gold_Yellow-ffd60a?style=flat-square) | `#ffd60a` | Interactive elements |
+| ![Maize Yellow](https://img.shields.io/badge/Maize_Yellow-fbec5d?style=flat-square) | `#fbec5d` | Text highlights |
 
 ## 🚀 How to Run Locally
 
