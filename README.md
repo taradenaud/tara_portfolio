@@ -12,15 +12,43 @@ This palette creates a **high-contrast, (hopefully) accessible design** that's b
 
 ### Color Palette Reference
 
-| Color          | Hex       | Usage |
-| -------------- | --------- | ----- |
-| Rich Black     | `#000814` | Deep backgrounds |
-| Oxford Blue    | `#001d3d` | Card backgrounds |
-| Yale Blue      | `#003566` | Secondary elements |
-| Marian Blue    | `#00428b` | Hover states |
-| Mikado Yellow  | `#ffc300` | Primary accents |
-| Gold Yellow    | `#ffd60a` | Interactive elements |
-| Maize Yellow   | `#fbec5d` | Text highlights |
+<table>
+<tr>
+<td><img src="https://via.placeholder.com/80x30/000814/000814.png" alt="#000814"/></td>
+<td><strong>Rich Black</strong><br/><code>#000814</code></td>
+<td>Deep backgrounds</td>
+</tr>
+<tr>
+<td><img src="https://via.placeholder.com/80x30/001d3d/001d3d.png" alt="#001d3d"/></td>
+<td><strong>Oxford Blue</strong><br/><code>#001d3d</code></td>
+<td>Card backgrounds</td>
+</tr>
+<tr>
+<td><img src="https://via.placeholder.com/80x30/003566/003566.png" alt="#003566"/></td>
+<td><strong>Yale Blue</strong><br/><code>#003566</code></td>
+<td>Secondary elements</td>
+</tr>
+<tr>
+<td><img src="https://via.placeholder.com/80x30/00428b/00428b.png" alt="#00428b"/></td>
+<td><strong>Marian Blue</strong><br/><code>#00428b</code></td>
+<td>Hover states</td>
+</tr>
+<tr>
+<td><img src="https://via.placeholder.com/80x30/ffc300/ffc300.png" alt="#ffc300"/></td>
+<td><strong>Mikado Yellow</strong><br/><code>#ffc300</code></td>
+<td>Primary accents</td>
+</tr>
+<tr>
+<td><img src="https://via.placeholder.com/80x30/ffd60a/ffd60a.png" alt="#ffd60a"/></td>
+<td><strong>Gold Yellow</strong><br/><code>#ffd60a</code></td>
+<td>Interactive elements</td>
+</tr>
+<tr>
+<td><img src="https://via.placeholder.com/80x30/fbec5d/fbec5d.png" alt="#fbec5d"/></td>
+<td><strong>Maize Yellow</strong><br/><code>#fbec5d</code></td>
+<td>Text highlights</td>
+</tr>
+</table>
 
 ## 🚀 How to Run Locally
 
